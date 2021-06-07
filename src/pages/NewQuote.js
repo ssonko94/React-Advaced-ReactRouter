@@ -1,12 +1,19 @@
 import React from "react";
-import MainHeader from "../components/layout/MainHeader";
-import Card from "../components/UI/Card";
+import { useHistory } from 'react-router-dom'
+
+import QuoteForm from "../components/quotes/QuoteForm";
 
 const AddNewQuote = () => {
+  const history = useHistory();
+  const addQuoteHandler = (quoteData) => {
+    
+    console.log(quoteData);
+
+    history.push('/quotes')
+  };
   return (
     <>
-      <MainHeader />
-      <Card></Card>
+      <QuoteForm onAddQuote={addQuoteHandler} />
     </>
   );
 };
